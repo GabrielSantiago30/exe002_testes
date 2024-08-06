@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Diablo IV</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <style>
+        body {
+            font-size: 16px;
+            /* Definição do tamanho base da fonte */
+        }
+
+        .rule {
+            color: var(--vermelhoescuro);
+        }
+
+        .rule.valid {
+            color: var(--verde);
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .invert {
+            filter: invert(1);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 10px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .button-container button {
+            padding: 5px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--preto);
+            color: var(--branco);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            /* Alterado para rem */
+        }
+
+        #charCount {
+            margin-top: 10px;
+        }
+
+        #warning {
+            color: var(--vermelhoescuro);
+            font-weight: bold;
+        }
+
+        #validationMessage {
+            color: var(--vermelhoescuro);
+            font-weight: bold;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            /* Alterado para rem */
+            padding: 18px 0;
+        }
+
+        main h2 {
+            font-size: 1.875rem;
+            /* Alterado para rem */
+        }
+
+        main p {
+            font-size: 1.25rem;
+            /* Alterado para rem */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="button-container">
+            <button id="invertButton">I</button>
+            <button id="increaseButton">A+</button>
+            <button id="decreaseButton">A-</button>
+        </div>
+        <h1>DIABLO IV</h1>
+        <nav>
+            <ul>
+                <li style="display: inline-block;"><a href="index.html">Página Inicial</a></li> |
+                <li style="display: inline-block;"><a href="galeria.html">Imagens</a></li> |
+                <li style="display: inline-block;"><a href="galeria2.html" rel="prev">Vídeos</a></li> |
+                <li style="display: inline-block;"><a href="formulario.html">Formulário</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Formulário de inscrição</h2>
+        <br />
+        <p>Cadastre e-mail em nosso formulário para receber mais informações do nosso jogo e se tornar um novo néfalem!
+        </p>
+        <br /><br />
+
+        <div class="formulario">
+            <form id="cadastroForm">
+                <fieldset>
+                    <br />
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required class="input" />
+
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required class="input" />
+                    <ul style="font-size: 18px;">
+                        <li id="ruleLength" class="rule">Pelo menos 3 caracteres</li>
+                        <li id="ruleSpecial" class="rule">Pelo menos um caractere especial (!@#$%^&*)</li>
+                    </ul>
+
+                    <label for="confirmarSenha">Digite a senha novamente:</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" required class="input" />
+                    <div id="passwordMatch" class="hidden">As senhas coincidem!</div>
+
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" name="idade" required class="input" />
+
+                    <label for="estado">Estado:</label>
+                    <select id="estado" name="estado" required class="input">
+                        <option value="">Selecione</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="ES">Espírito Santo</option>
+                    </select>
+
+                    <label for="cidade">Cidade:</label>
+                    <select id="cidade" name="cidade" disabled required class="input">
+                        <option value="">Selecione</option>
+                    </select>
+                    <br /><br />
+
+                    <label for="mensagem">Deixe suas dúvidas e/ou sugestões:</label>
+                    <textarea id="mensagem" name="mensagem" rows="6" cols="70" maxlength="200" class="input"></textarea>
+                    <div id="charCount">Caracteres digitados: 0</div>
+                    <div id="warning" style="display: none;">Você atingiu o limite máximo de caracteres!</div>
+                    <br />
+
+                    <button type="submit" style="padding: 10px; font-size: 20px;">Enviar</button>
+                    <div id="validationMessage"></div>
+                    <br />
+                </fieldset>
+            </form>
+        </div>
+    </main>
+
+    <footer style="padding: 40px 0;">
+        <p><strong>Copyright &copy; 2024 Diablo IV. Todos os direitos reservados.</strong></p>
+    </footer>
+
+    <script src="form.js">
+
+    </script>
+</body>
+
+</html>
